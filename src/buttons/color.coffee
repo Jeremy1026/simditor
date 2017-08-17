@@ -33,15 +33,9 @@ class ColorButton extends Button
       @wrapper.removeClass('menu-on')
       $link = $(e.currentTarget)
 
-      if $link.hasClass 'font-color-default'
-        $p = @editor.body.find 'p, li'
-        return unless $p.length > 0
-        rgb = window.getComputedStyle($p[0], null).getPropertyValue('color')
-        hex = @_convertRgbToHex rgb
-      else
-        rgb = window.getComputedStyle($link[0], null)
-          .getPropertyValue('background-color')
-        hex = @_convertRgbToHex rgb
+      rgb = window.getComputedStyle($link[0], null)
+        .getPropertyValue('background-color')
+      hex = @_convertRgbToHex rgb
 
       return unless hex
 
